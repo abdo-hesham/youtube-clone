@@ -1,0 +1,30 @@
+.content {
+  background-color: $color-light-grey;
+  padding: 0 12% 24px;
+
+  @include respond(tab-port) {
+    padding: 0 5% 24px;
+  }
+  @include respond(below-tab) {
+    padding: 0 0 24px;
+    transform: translateY(0);
+    background-color: $color-white;
+  }
+}
+
+.loading {
+  z-index: 300;
+
+  &__spinner {
+    @include absCenter;
+    top: 40% !important;
+    text-align: center;
+
+    p {
+      margin-top: 20px;
+      color: $color-grey;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+}

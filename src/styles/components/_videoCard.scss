@@ -1,0 +1,136 @@
+.card {
+  display: flex;
+  margin-top: 20px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover &__thumbnail--play {
+    opacity: 0.8;
+  }
+
+  &__thumbnail {
+    position: relative;
+    min-width: 245px;
+    text-align: center;
+    margin-right: 16px;
+
+    @include respond(phone) {
+      min-width: unset;
+      width: 55%;
+      margin-right: 8px;
+    }
+
+    &--img {
+      height: 138px;
+
+      @include respond(phone) {
+        height: auto;
+        width: 100%;
+      }
+    }
+    &--play {
+      @include absCenter;
+      z-index: 1;
+      width: 70px;
+      height: 70px;
+      opacity: 0;
+      transition: 0.3s all ease-in;
+    }
+    &--duration {
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 4px;
+      color: $color-white;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 2px 4px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.2rem;
+    }
+  }
+
+  &__body {
+    width: 60%;
+    text-align: left;
+
+    @include respond(phone) {
+      width: 45%;
+    }
+
+    &--title,
+    &--title span {
+      font-size: 1.8rem !important;
+      font-weight: 400;
+      line-height: 2.4rem;
+    }
+
+    &--info {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: $color-grey;
+      max-height: 3.6rem;
+      display: flex;
+      margin-top: 5px;
+
+      @include respond(below-tab) {
+        flex-direction: column;
+        max-height: unset;
+      }
+      span {
+        margin-bottom: 8px;
+
+        @include respond(below-tab) {
+          margin-bottom: 4px;
+        }
+
+        &:first-child {
+          z-index: 10;
+          cursor: pointer;
+          &:hover {
+            color: $color-dark-grey;
+          }
+        }
+      }
+
+      &--date {
+        @include hideInMobile;
+      }
+      &--vids {
+        @include showInMobile;
+      }
+    }
+
+    &--description {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: $color-grey;
+      max-height: 3.6rem;
+      margin-bottom: 8px;
+      line-height: 1.8rem;
+
+      @include hideInMobile;
+    }
+  }
+
+  &--single {
+    margin: 20px auto 40px;
+  }
+}
+@include respond(phone) {
+  .channel {
+    &__thumbnail {
+      width: 30%;
+    }
+    &__body {
+      width: 70%;
+      margin-left: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
